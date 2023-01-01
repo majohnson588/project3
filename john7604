@@ -1,6 +1,7 @@
 字符函数与字符串函数
 #include <string.h>
 #include <stdio.h>
+strlen
 int main()
 {
     //char ch = 'a';
@@ -46,5 +47,123 @@ int main()
     char arr[ ] = "abcdef";
     int len = my_strlen(arr);
     printf("%d\n", len);
+    return 0;
+}
+
+strcpy
+int main()
+{
+    //char arr1[20] = { 0 };
+    char arr1[20] = "XXXXXXXXX";
+    char arr2[ ] = "abcdef";
+    //char arr2[ ] = { 'a', 'b', 'c' };//程序崩溃
+    //char arr2[10] = {'a', 'b', 'c'};//正常运行不完全初始化，剩下7个默认为“\0”
+    strcpy(arr1, arr2);//会让“\0”把X覆盖
+    printf("%s\n", arr1);
+    return 0;
+}
+
+int main()
+{
+    char arr1[4] = "x";
+    char arr2[ ] = "abcdef";
+    strcpy(arr1,arr2);//arr1不够空间存放，栈空间被破坏，但可以成功运行
+    return 0;
+}
+
+int main()
+{
+    //char arr1[4] = "x";
+   char* arr1 = "qwertyuiop";//arr1指向的是常量字符串，常量是不可修改的
+   char arr2[ ] = "abcdef";
+   strcpy(arr1, arr2);//程序报错
+   return 0;
+}
+char* my_strcpy(char*dest, const char*src)
+{
+    assert(src && dest)
+    char* ret = dest;
+    while{*dest++ = *src++)
+    {
+               ;
+    }
+    return ret;
+}
+
+int main()
+{
+    char arr1[20] = { 0 };
+    char* arr2 = "hello bit";
+
+    printf("%s\n", my_strcpy(arr1, arr2));
+    return 0;
+}
+
+strcat
+char* my_strcat(char* dest, char* src)
+{
+    assert(dest && src)
+    char* ret = dest;
+    //找目标空间中的'\0'
+    while(*dest)
+    {
+          dest++:
+    }
+    //拷贝
+    while(*dest++ = *src++)
+    {
+             ;
+    }
+    return ret;
+}
+
+int main()
+{
+    char arr1[20] = "hello";//必须要有'\0'
+    char arr2[ ] = "bit";
+    my_strcat( arr1, arr2 };//自己给自己追加会覆盖'\0'，程序崩溃
+
+    printf("%s\n",arr1);
+
+    return 0;
+}
+
+strcmp
+int my_strcmp(const char* s1,const char* s2)
+{
+      assert(s1 && s2)
+      while(*s1 == *s2)
+      {
+            if( *s1 == '\0' )
+            {
+                  return 0;//相等
+            }
+             s1++;
+             s2++;
+      }
+      return *s1 - *s2;
+}
+
+int main()
+{
+    char arr1[ ] = "abcdef";
+    char arr2[ ] = "abq";
+    //q大于c，所以arr2大于arr1
+    int ret = my_strcmp(arr1, arr2);
+    //strcmp函数比较地不是字符串的长度！！！！
+    //而是比较字符串中对应位置上的字符的大小，如果相同，就比较下一对儿，直到不同或都遇到\0
+    //
+    if ( ret > 0)
+    {
+          printf(">");
+    }
+    else if ( ret == 0)
+    {
+          printf("=");
+    }
+    else
+    {
+          printf("=");
+    }
     return 0;
 }
