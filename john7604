@@ -324,7 +324,7 @@ int main()
 }
 
 Practice2:
-用递归实现倒叙字符串
+用递归实现倒序字符串
 void reverse_string(char* string,int left,int right)
 {
     int tmp;
