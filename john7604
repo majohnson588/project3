@@ -322,3 +322,28 @@ int main()
   }
   return 0;
 }
+
+Practice2:
+用递归实现倒叙字符串
+void reverse_string(char* string,int left,int right)
+{
+    int tmp;
+    if(left>=right)
+    return 0;
+    else
+    tmp = string[left];
+    string[left] = string[right];
+    string[right] = tmp;
+    return reverse_string(string,left + 1,right - 1);
+}
+int main()
+{
+    char string[10];
+    scanf("%s",&string);
+    int sz = sizeof(string)/sizeof(string[0]);
+    int left = 0;
+    int right = sz- 1;
+    reverse_string(string,left,right);
+    printf("%s",string);
+    return 0;
+}
