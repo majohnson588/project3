@@ -386,3 +386,29 @@ int main()
     }
     return 0;
 }
+
+Practice4:
+//交换两个数组
+#include <stdio.h>
+#include <math.h>
+Swap(char arr1[],char arr2[],int len)
+{   
+    int i;
+    for(i=0;i<len;i++)
+    {
+    char tmp = arr1[i];
+    arr1[i] = arr2[i];
+    arr2[i] = tmp;
+    }
+}
+int main()
+{
+    int len;
+    char arr1[5] = "abcd";
+    char arr2[5] = "fghi";
+    len = strlen(arr1);
+    printf("%s %s\n",arr1,arr2);
+    Swap(arr1,arr2,len);
+    printf("%s %s\n",arr1,arr2);
+    return 0;
+}
