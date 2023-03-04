@@ -366,8 +366,8 @@ void reverse(int arr[],int left,int right)
 void leftrotate(int arr[],int k,int sz)
 {
     k%=sz;
-    reverse(arr,0,sz-k-1);
-    reverse(arr,sz-k,sz-1);
+    reverse(arr,0,k-1);
+    reverse(arr,k,sz-1);
     reverse(arr,0,sz-1);
 }
 
