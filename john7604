@@ -363,7 +363,7 @@ void reverse(int arr[],int left,int right)
     }
 }
 
-void rotate(int arr[],int k,int sz)
+void leftrotate(int arr[],int k,int sz)
 {
     k%=sz;
     reverse(arr,0,sz-k-1);
@@ -379,7 +379,7 @@ int main()
     int arr[9] = {0,1,2,3,4,5,6,7,8};
     scanf("%d",&k);
     int sz = sizeof(arr)/sizeof(arr[0]);
-    rotate(arr,k,sz);
+    leftrotate(arr,k,sz);
     for(i=0;i<sz;i++)
     {
         printf("%d",arr[i]);
