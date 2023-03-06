@@ -408,3 +408,13 @@ int binary_check(int num)
 		count++;
 	}
 }
+
+int binary_check(unsigned int num)
+{
+     int count = 0;
+     while(num/2)
+     {
+        num%=2;
+        count++;
+     }
+}
