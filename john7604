@@ -538,6 +538,12 @@ int main()
 
 Practice9:
 模拟实现atoi
+#include <stdio.h>
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <stdlib.h>
+
 enum Status
 {
 	VALID,
@@ -560,12 +566,12 @@ int my_atoi(char* str)
 		str++;
 	}
 	//正负号
-	if (*str = '+')
+	if (*str == '+')
 	{
 		flag = 1;
 		str++;
 	}
-	else if (*str = '-')
+	else if (*str == '-')
 	{
 		flag = -1;
 		str++;
@@ -581,7 +587,7 @@ int my_atoi(char* str)
 				n = INT_MIN;
 				break;
 			}
-			else
+			else if(n > INT_MAX)
 			{
 				n = INT_MAX;
 				break;
@@ -603,7 +609,7 @@ int my_atoi(char* str)
 
 int main()
 {
-	char arr[30] = "1111111111111111111111111";
+	char arr[30] = "    -123456";
 	int ret = my_atoi(arr);
 	if (status == VALID)
 		printf("%d\n", ret);
