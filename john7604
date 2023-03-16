@@ -535,3 +535,79 @@ int main()
 	find_single_num(arr, sz);
 	return 0;
 }
+
+Practice9:
+模拟实现atoi
+enum Status
+{
+	VALID,
+	INVALID
+}status = INVALID;
+
+int my_atoi(char* str)
+{
+	int flag = 1;
+	//空指针
+	assert(str);
+	//字符串为空
+	if (*str == '\0')
+	{
+		return 0;
+	}
+	//空白字符
+	while (isspace(*str))
+	{ 
+		str++;
+	}
+	//正负号
+	if (*str = '+')
+	{
+		flag = 1;
+		str++;
+	}
+	else if (*str = '-')
+	{
+		flag = -1;
+		str++;
+	}
+	long long n = 0;
+	while (*str != '\0')
+	{
+		if (isdigit(*str))
+		{
+			n = n * 10 + flag * (*str - '0');
+			if (n < INT_MIN)
+			{
+				n = INT_MIN;
+				break;
+			}
+			else
+			{
+				n = INT_MAX;
+				break;
+			}
+		}
+		else
+		{
+			n = 0;
+			break;
+		}
+		str++;
+		if (*str == '\0')
+		{
+			status = VALID;
+		}
+	}
+	return (int)n;
+}
+
+int main()
+{
+	char arr[30] = "1111111111111111111111111";
+	int ret = my_atoi(arr);
+	if (status == VALID)
+		printf("%d\n", ret);
+	else
+		printf("非法转换：%d\n", ret);
+	return 0;
+}
