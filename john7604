@@ -619,6 +619,7 @@ int main()
 }
 
 Practice10：
+求下列代码输出结果
 int main()
 {
 	unsigned char i = 7;
@@ -642,3 +643,14 @@ int main()
 	return 0;
 }
 //173
+
+Practice11：
+写一个宏，交换一个二进制数字的奇数位和偶数位
+#define SWAP(num) (num=((num&0x55555555)<<1)+((num&0xaaaaaaaa)>>1))
+int main()
+{
+	int num = 10;
+	SWAP(num);
+	printf("%d\n", num);
+	return 0;
+}
